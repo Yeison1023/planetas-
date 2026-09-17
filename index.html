@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  
+  <title>Calculadora de Peso Interplanetaria</title>
+</head>
+<body>
+    <script src="jay.js"></script>
+  <main class="dashboard">
+    <header class="header">
+      <span class="badge">EXPLORACIÓN PLANETARIA PESO</span>
+      <h1>CALCULADORA DE <span>PESO</span> INTERPLANETARIA</h1>
+      <p>Determine su masa relativa y evalúe la alteración barométrica de su cuerpo en el Sistema Solar.</p>
+    </header>
+
+    <!-- Panel de control -->
+    <section class="panel control-panel">
+      <div class="field-group">
+        <h1> ASTRO O CUERPO CELESTE DE DESTINO </h1>
+        <select id="planet-select" onchange="updatePlanet()">
+            <option value="sol" data-gravity="27.93" data-color="#FF3800" data-tagline="CORONA DE ENERGIA INFINITA"> SOL — 274.0 m/s²</option>
+          <option value="mercurio" data-gravity="0.377" data-color="#cccccc" data-tagline="EL CORREDOR VELOZ"> MERCURIO — 3.70 m/s²</option>
+          <option value="tierra" data-gravity="1.000" data-color="#568203" data-tagline="CUNA DE HUMANIDAD"> TIERRA — 9.81 m/s²</option>
+          <option value="marte" data-gravity="0.379" data-color="#ff5500" data-tagline="VISITA LOS VALLES ROJOS"> MARTE  — 3.79 m/s²</option>
+          <option value="venus" data-gravity="0.907" data-color="#e6b800" data-tagline="EL INFIERNO INVERNADERO"> VENUS — 8.87 m/s²</option>
+          <option value="urano" data-gravity="0.886" data-color="#0FFFFF" data-tagline="EL RETRATO DE TURQUESA"> URANO — 8.69 m/s²</option>
+          <option value="neptuno" data-gravity="1.137" data-color="#0088ff" data-tagline="EL MUNDO AZUL OCULTO"> NEPTUNO — 11.15 m/s²</option>
+          <option value="saturno" data-gravity="1.064" data-color="#DAC8AE" data-tagline="LA CORONA ANILLADA"> SATURNO — 10.44 m/s²</option>
+          <option value="júpiter" data-gravity="2.528" data-color="#ffaa00" data-tagline="EL GIGANTE GASEOSO"> JÚPITER — 24.79 m/s²</option>
+          <option value="luna" data-gravity="0.166" data-color="#aaaaaa" data-tagline="EL SATÉLITE NATURAL">LA LUNA — 1.62 m/s²</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <h1> MASA TERRESTRE DEL EXPLORADOR (KG) </h1>
+        <input type="number" id="user-weight" value="70" placeholder="70" oninput="calculateWeight()">
+      </div>
+    </section>
+
+
+    <div class="grid-container">
+      
+      <article class="panel card-visual">
+        <span class="card-subtitle">SECTOR HACTOR AR93-B1</span>
+        <h2 id="planet-name">MARS</h2>
+        <p id="planet-tagline" class="tagline">VISITA LOS VALLES ROJOS</p>
+        
+        <div class="planet-graphic">
+          <div class="orbit-circle"></div>
+          <div class="planet-sphere" id="planet-sphere"></div>
+        </div>
+
+        <div class="gravity-info">
+          <span>GRAVEDAD RELATIVA</span>
+          <strong id="planet-gravity-display">0.379G</strong>
+        </div>
+      </article>
+
+      
+      <article class="panel card-results">
+        <div class="results-header">
+          <h3>EN <span id="target-planet-label">MARTE</span> PESARÍAS EXACTAMENTE:</h3>
+          <div class="big-result">
+            <span id="final-weight-val">26.5</span>
+            <small>KILOGRAMOS</small>
+          </div>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric-box">
+            <h4>VARIACIÓN RESPECTO A LA TIERRA</h4>
+            <p id="weight-diff-percent">-62.1% MÁS LIGERO</p>
+          </div>
+          <div class="metric-box">
+            <h4>DESEMPEÑO CINÉTICO DE SALTO</h4>
+            <p id="jump-height">2.64× MÁS ALTO</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+</body>
+</html>
