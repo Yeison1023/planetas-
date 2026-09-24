@@ -1,4 +1,4 @@
-// Base de datos de todos los cuerpos celestes
+// informacion de los planetas que al poner el value=sol etc se mostrara la informacion de cada planeta en la pagina
 const celestialData = {
   sol: {
     name: "EL SOL",
@@ -68,7 +68,7 @@ const celestialData = {
     compVal: "ÓXIDO DE HIERRO, ROCAS DE BASALTO Y CO2",
     compDesc: "Hogar del volcán más grande del sistema solar (Monte Olimpo).",
     moonsVal: "2 LUNAS (FOBOS Y DEIMOS)",
-    moonsDesc: "Asteroide capturados de forma irregular.",
+    moonsDesc: "Asteroides capturados de forma irregular.",
     distVal: "227.9 M KM (1.52 UA)",
     distDesc: "Posee la atmósfera más tenue del grupo rocoso."
   },
@@ -141,7 +141,7 @@ const celestialData = {
     compDesc: "Famoso por su extenso e intrincado sistema de anillos de hielo.",
     moonsVal: "146 LUNAS CONFIRMADAS",
     moonsDesc: "Titán posee atmósfera densa y mares de metano líquido.",
-    distVal: "1,433 M KM (9.58 UA)",
+    distVal: "1496 M KM (9.58 UA)",
     distDesc: "Su densidad es menor que la del agua."
   },
   jupiter: {
@@ -182,100 +182,143 @@ const celestialData = {
   }
 };
 
+// Función auxiliar para actualizar texto de forma segura sin romper el código
+function setSafeText(id, value) {
+  const element = document.getElementById(id);
+  if (element) {
+    element.textContent = value;
+  }
+}
+
+
 // Función principal de actualización
 function updateTelemetry() {
-  const planetSelect = document.querySelector('.custom-select');
-  const massInput = document.querySelector('.custom-input');
+  const planetSelect = document.querySelector('.custom-select'); // selecciona el planeta con la clase custom.select del index
+  const massInput = document.querySelector('.custom-input'); // lo mismo pero con el peso
   
+  if (!planetSelect) return;
+
   const planetKey = planetSelect.value;
   const data = celestialData[planetKey];
-  const earthMass = parseFloat(massInput.value) || 70;
+  const earthMass = parseFloat(massInput ? massInput.value : 70) || 70;
 
   if (!data) return;
 
-  // 1. Aplicar variables de color de tema
+  // 1. Cambiar variable de color del tema
   document.documentElement.style.setProperty('--theme-color', data.color);
   document.documentElement.style.setProperty('--theme-color-glow', `${data.color}33`);
 
-  // 2. Cálculos físicos principales
+  // 2. Cálculos Físicos
   const calculatedWeight = earthMass * (data.gravity / 9.81);
   const percentDiff = ((data.gravity - 9.81) / 9.81) * 100;
   const jumpFactor = 9.81 / data.gravity;
   const jumpMeters = 0.50 * jumpFactor;
 
-  // 3. Actualizar AFICHE IZQUIERDO
-  document.getElementById('poster-planet-name').textContent = data.name;
-  document.getElementById('poster-sector').textContent = data.sector;
-  document.getElementById('poster-title').textContent = data.englishName;
-  document.getElementById('poster-subtitle').textContent = data.subtitle;
-  document.getElementById('poster-gravity').textContent = data.gravityRel;
-  document.getElementById('poster-exp-id').textContent = data.code;
+  // 3. AFICHE IZQUIERDO
+  setSafeText('poster-planet-name', data.name);
+  setSafeText('poster-sector', data.sector);
+  setSafeText('poster-title', data.englishName);
+  setSafeText('poster-subtitle', data.subtitle);
+  setSafeText('poster-gravity', data.gravityRel);
+  setSafeText('poster-exp-id', data.code);
 
-  // 4. Actualizar MEDIDOR DE INERCIA
+  // 4. MEDIDOR DE INERCIA
   const relPercent = ((data.gravity / 9.81) * 100).toFixed(1);
-  document.getElementById('inertia-percentage').textContent = `${relPercent}% DE LA TIERRA`;
-  document.getElementById('inertia-earth-mass').textContent = `${earthMass.toFixed(1)} KG`;
-  document.getElementById('inertia-local-label').textContent = `${data.name} (LOCAL)`;
-  document.getElementById('inertia-local-mass').textContent = `${calculatedWeight.toFixed(2)} KG`;
+  setSafeText('inertia-percentage', `${relPercent}% DE LA TIERRA`);
+  setSafeText('inertia-earth-mass', `${earthMass.toFixed(1)} KG`);
+  setSafeText('inertia-local-label', `${data.name} (LOCAL)`);
+  setSafeText('inertia-local-mass', `${calculatedWeight.toFixed(2)} KG`);
 
   const maxBarWidth = Math.min(Math.max((data.gravity / 9.81) * 30, 5), 100);
-  document.getElementById('inertia-local-bar').style.width = `${maxBarWidth}%`;
+  const localBar = document.getElementById('inertia-local-bar');
+  if (localBar) {
+    localBar.style.width = `${maxBarWidth}%`;
+  }
 
-  // 5. Actualizar RESULTADOS DERECHA
-  document.getElementById('res-planet-name').textContent = data.name;
-  document.getElementById('res-weight-value').textContent = calculatedWeight.toFixed(1);
+  // 5. RESULTADOS DERECHA
+  setSafeText('res-planet-name', data.name);
+  setSafeText('res-weight-value', calculatedWeight.toFixed(1));
 
   const diffSign = percentDiff >= 0 ? '+' : '';
   const diffWord = percentDiff >= 0 ? 'MÁS PESADO' : 'MÁS LIGERO';
-  document.getElementById('metric-diff-value').textContent = `${diffSign}${percentDiff.toFixed(1)}% ${diffWord}`;
+  setSafeText('metric-diff-value', `${diffSign}${percentDiff.toFixed(1)}% ${diffWord}`);
 
-  document.getElementById('metric-jump-value').textContent = `${jumpFactor.toFixed(2)}× MÁS ALTO`;
-  document.getElementById('metric-jump-desc').textContent = `Un salto vertical de 0.50 m en la Tierra aquí ascendería a ${jumpMeters.toFixed(2)} metros.`;
+  setSafeText('metric-jump-value', `${jumpFactor.toFixed(2)}× MÁS ALTO`);
+  setSafeText('metric-jump-desc', `Un salto vertical de 0.50 m en la Tierra aquí ascendería a ${jumpMeters.toFixed(2)} metros.`);
 
-  // 6. Actualizar FICHA TÉCNICA
-  document.getElementById('tech-size-val').textContent = data.sizeVal;
-  document.getElementById('tech-size-desc').textContent = data.sizeDesc;
-  document.getElementById('tech-comp-val').textContent = data.compVal;
-  document.getElementById('tech-comp-desc').textContent = data.compDesc;
-  document.getElementById('tech-moons-val').textContent = data.moonsVal;
-  document.getElementById('tech-moons-desc').textContent = data.moonsDesc;
-  document.getElementById('tech-dist-val').textContent = data.distVal;
-  document.getElementById('tech-dist-desc').textContent = data.distDesc;
+  // 6. FICHA TÉCNICA
+  setSafeText('tech-size-val', data.sizeVal);
+  setSafeText('tech-size-desc', data.sizeDesc);
+  setSafeText('tech-comp-val', data.compVal);
+  setSafeText('tech-comp-desc', data.compDesc);
+  setSafeText('tech-moons-val', data.moonsVal);
+  setSafeText('tech-moons-desc', data.moonsDesc);
+  setSafeText('tech-dist-val', data.distVal);
+  setSafeText('tech-dist-desc', data.distDesc);
 
-  // ----------------------------------------------------
-  // 7. ACTUALIZAR TABLA DE TRANSMISIÓN SIMULTÁNEA
-  // ----------------------------------------------------
-  document.getElementById('comp-mass-ref').textContent = `CÁLCULO BASADO EN MASA DE ${earthMass.toFixed(1)} KG`;
+  // 7. TABLA DE TRANSMISIÓN SIMULTÁNEA INFERIOR
+  setSafeText('comp-mass-ref', `CÁLCULO BASADO EN MASA DE ${earthMass.toFixed(1)} KG`);
 
-  // Recalcular el peso para los 10 planetas
   Object.keys(celestialData).forEach(key => {
     const itemData = celestialData[key];
     const itemWeight = (earthMass * (itemData.gravity / 9.81)).toFixed(1);
-    const valElem = document.getElementById(`comp-val-${key}`);
-    if (valElem) {
-      valElem.textContent = itemWeight;
-    }
+    setSafeText(`comp-val-${key}`, itemWeight);
   });
 
-  // Marcar la tarjeta activa de la tabla
+  // Resaltar elemento activo en la tabla
   document.querySelectorAll('.comp-item').forEach(card => {
-    card.classList.remove('active');
-    if (card.getAttribute('data-planet') === planetKey) {
-      card.classList.add('active');
-    }
+    card.classList.toggle('active', card.getAttribute('data-planet') === planetKey);
+  });
+
+  // Resaltar elemento activo en los botones de colores/paletas
+  document.querySelectorAll('.palette-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-planet') === planetKey);
   });
 }
 
-// Permitir hacer clic directo en las tarjetas de la tabla para cambiar el astro
+// Escuchadores de eventos para que la página sea interactiva
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.comp-item').forEach(card => {
-    card.addEventListener('click', () => {
-      const planetKey = card.getAttribute('data-planet');
-      const select = document.querySelector('.custom-select');
-      if (select) {
+  const select = document.querySelector('.custom-select');
+  const input = document.querySelector('.custom-input');
+  const calcBtn = document.querySelector('.btn-calculate');
+
+  // Evento al cambiar la opción del menú SELECT
+  if (select) {
+    select.addEventListener('change', updateTelemetry);
+  }
+
+  // Evento al escribir una masa en el INPUT
+  if (input) {
+    input.addEventListener('input', updateTelemetry);
+  }
+
+  // Evento al hacer clic en el BOTÓN "CALCULAR TELEMETRÍA"
+  if (calcBtn) {
+    calcBtn.addEventListener('click', updateTelemetry);
+  }
+
+  // Evento al hacer clic en las Paletas Litográficas (Botones de colores)
+  document.querySelectorAll('.palette-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const planetKey = btn.getAttribute('data-planet');
+      if (planetKey && select) {
         select.value = planetKey;
         updateTelemetry();
       }
     });
   });
+
+  // Evento al hacer clic en las tarjetas de la Tabla Comparativa inferior
+  document.querySelectorAll('.comp-item').forEach(card => {
+    card.addEventListener('click', () => {
+      const planetKey = card.getAttribute('data-planet');
+      if (planetKey && select) {
+        select.value = planetKey;
+        updateTelemetry();
+      }
+    });
+  });
+
+  // Ejecución inicial al cargar la página
+  updateTelemetry();
 });

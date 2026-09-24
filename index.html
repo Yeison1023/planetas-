@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <title> Peso En Planetas </title>
 </head>
+<script src="jay.js"></script>
 <body>
     <header class="inicio-section">
     <div class="titulo">
@@ -82,19 +83,19 @@
         </div>
 
         <!-- Barra de Paletas Litográficas -->
-        <div class="colores-planetas">
+      <div class="colores-planetas">
           <span class="palette-title">PALETAS LITOGRÁFICAS VINTAGE JPL:</span>
-          <div class="palette-buttons">
-            <button class="palette-btn"><span class="color-dot color-sol"></span>SOL</button>
-            <button class="palette-btn"><span class="color-dot color-mercurio"></span>MERCURIO</button>
-            <button class="palette-btn"><span class="color-dot color-tierra"></span>TIERRA</button>
-            <button class="palette-btn"><span class="color-dot color-marte"></span>MARTE</button>
-            <button class="palette-btn"><span class="color-dot color-venus"></span>VENUS</button>
-            <button class="palette-btn"><span class="color-dot color-urano"></span>URANO</button>
-            <button class="palette-btn"><span class="color-dot color-neptuno"></span>NEPTUNO</button>
-            <button class="palette-btn"><span class="color-dot color-saturno"></span>SATURNO</button>
-            <button class="palette-btn"><span class="color-dot color-jupiter"></span>JÚPITER</button>
-            <button class="palette-btn"><span class="color-dot color-pluton"></span>PLUTÓN</button>
+        <div class="palette-buttons">
+            <button class="palette-btn" data-planet="sol"><span class="color-dot color-sol"></span>SOL</button>
+            <button class="palette-btn" data-planet="tierra"><span class="color-dot color-tierra"></span>TIERRA</button>
+            <button class="palette-btn" data-planet="mercurio"><span class="color-dot color-mercurio"></span>MERCURIO</button>
+            <button class="palette-btn" data-planet="venus"><span class="color-dot color-venus"></span>VENUS</button>
+            <button class="palette-btn" data-planet="marte"><span class="color-dot color-marte"></span>MARTE</button>
+            <button class="palette-btn" data-planet="neptuno"><span class="color-dot color-neptuno"></span>NEPTUNO</button>
+            <button class="palette-btn" data-planet="urano"><span class="color-dot color-urano"></span>URANO</button>
+            <button class="palette-btn" data-planet="jupiter"><span class="color-dot color-jupiter"></span>JÚPITER</button>
+            <button class="palette-btn" data-planet="saturno"><span class="color-dot color-saturno"></span>SATURNO</button>
+            <button class="palette-btn" data-planet="pluton"><span class="color-dot color-pluton"></span>PLUTÓN</button>
           </div>
         </div>
       </div>
