@@ -102,12 +102,7 @@ body {
   }
 }
 
-/* inicio de la segunda sección/* 
-
-
-
-/* Importar fuente monoespaciada tipo retro/consola */
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+/* inicio de la segunda parte/* 
 
 /* Contenedor exterior */
 .telemetry-panel-container {
@@ -368,8 +363,8 @@ body {
   --theme-color-glow: rgba(255, 85, 0, 0.2);
 }
 
-/* Grilla del Dashboard */
-.dashboard-grid {
+
+.planetas-info {
   width: 100%;
   max-width: 1100px;
   margin: 20px auto 60px auto;
@@ -379,8 +374,7 @@ body {
   font-family: 'Space Grotesk', sans-serif;
 }
 
-/* Tarjeta Afiche JPL */
-.jpl-poster-card {
+.afiche-poster {
   background-color: #0d1117;
   border: 2px solid var(--theme-color);
   padding: 20px;
@@ -389,7 +383,7 @@ body {
   flex-direction: column;
 }
 
-.poster-header {
+.poster-arriba {
   display: flex;
   justify-content: space-between;
   font-family: 'Share Tech Mono', monospace;
@@ -417,7 +411,7 @@ body {
 }
 
 /* Ilustración */
-.planet-graphic-container {
+.grafico-planeta {
   height: 200px;
   position: relative;
   display: flex;
@@ -443,7 +437,7 @@ body {
   box-shadow: 0 0 30px var(--theme-color-glow);
 }
 
-.gravity-badge-container {
+.gravedad-relativa {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -452,11 +446,8 @@ body {
   margin-top: auto;
 }
 
-.gravity-triangle {
-  color: var(--theme-color);
-}
 
-.gravity-info {
+.gravedad-info {
   text-align: right;
 }
 
@@ -473,30 +464,17 @@ body {
   color: #ffffff;
 }
 
-.poster-footer {
-  border-top: 1px solid #21262d;
-  margin-top: 12px;
-  padding-top: 12px;
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 9px;
-  color: #8b949e;
-  display: flex;
-  justify-content: space-between;
-}
 
-.jpl-code {
-  text-align: right;
-}
 
 /* Medidor de Inercia */
-.inertia-meter-card {
+.debajo-de-arriba {
   background-color: #151921;
   border: 1px solid #232a36;
   padding: 16px;
   margin-top: 16px;
 }
 
-.inertia-header {
+.inercia {
   display: flex;
   justify-content: space-between;
   font-family: 'Share Tech Mono', monospace;
@@ -504,8 +482,9 @@ body {
   margin-bottom: 12px;
 }
 
-.inertia-title { color: #8b949e; }
-.inertia-badge {
+.inercia-titulo { color: #8b949e; }
+
+.inercia-badge {
   background-color: var(--theme-color);
   color: #000;
   padding: 2px 6px;
@@ -513,6 +492,8 @@ body {
 }
 
 .inertia-bar-group { margin-bottom: 10px; }
+
+
 .inertia-label-row {
   display: flex;
   justify-content: space-between;
@@ -533,14 +514,14 @@ body {
 .local-bar { background-color: var(--theme-color); }
 
 /* Lado Derecho - Resultado */
-.telemetry-result-box {
+.resultado-peso {
   background-color: #151921;
   border: 2px solid var(--theme-color);
   padding: 24px;
   margin-bottom: 20px;
 }
 
-.result-header {
+.resultado-header {
   display: flex;
   justify-content: space-between;
   font-family: 'Share Tech Mono', monospace;
@@ -559,7 +540,7 @@ body {
 
 .result-headline span { color: var(--theme-color); }
 
-.weight-display {
+.kilogramos-titulo {
   font-size: 64px;
   font-weight: 800;
   color: var(--theme-color);
@@ -567,13 +548,13 @@ body {
   margin: 16px 0 24px 0;
 }
 
-.weight-unit {
+.kilos {
   font-size: 28px;
   color: #ffffff;
   margin-left: 8px;
 }
 
-.metrics-grid {
+.metrica-planeta {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
@@ -606,7 +587,7 @@ body {
 }
 
 /* Ficha Técnica */
-.tech-sheet-header {
+.ficha-tecnica-header {
   display: flex;
   justify-content: space-between;
   font-family: 'Share Tech Mono', monospace;
@@ -617,19 +598,19 @@ body {
 
 .source-tag { color: #8b949e; }
 
-.tech-grid {
+.parametros-orbitales {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
-.tech-card {
+.carta-tamaño {
   background-color: #151921;
   border: 1px solid #232a36;
   padding: 16px;
 }
 
-.tech-card-title {
+.carta-titulo {
   font-family: 'Share Tech Mono', monospace;
   font-size: 10px;
   color: #8b949e;
@@ -638,7 +619,7 @@ body {
   margin-bottom: 8px;
 }
 
-.tech-card-value {
+.kilometros-titulo {
   font-size: 18px;
   font-weight: 800;
   color: #ffffff;
@@ -646,7 +627,7 @@ body {
   text-transform: uppercase;
 }
 
-.tech-card-desc {
+.diametro-planeta {
   font-size: 12px;
   color: #8b949e;
   line-height: 1.4;
@@ -654,6 +635,216 @@ body {
 
 /* Adaptabilidad móvil */
 @media (max-width: 900px) {
-  .dashboard-grid { grid-template-columns: 1fr; }
+  .planetas-info { grid-template-columns: 1fr; }
   .metrics-grid, .tech-grid { grid-template-columns: 1fr; }
+}
+
+/* inicio cuarta parte  /* 
+
+
+/* Sección de la Tabla Comparativa */
+.tabla-comparativa-section {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 60px auto;
+  padding: 0 20px;
+}
+
+.comparative-card {
+  background-color: #12161f;
+  border: 1px solid #232a36;
+  padding: 28px 32px;
+  border-radius: 2px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Encabezado */
+.comp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.comp-subtag {
+  display: block;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: #ff6b35;
+  letter-spacing: 1.2px;
+  margin-bottom: 6px;
+}
+
+.comp-main-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.comp-mass-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  color: #ff6b35;
+  letter-spacing: 1px;
+}
+
+.comp-divider {
+  height: 1px;
+  background-color: #232a36;
+  margin-bottom: 24px;
+}
+
+/* Rejilla de 10 columnas */
+.comp-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+/* Tarjeta individual de cada astro */
+.comp-item {
+  background-color: #0b0e14;
+  border: 1px solid transparent;
+  padding: 18px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 220px;
+}
+
+.comp-item:hover {
+  border-color: #384355;
+  background-color: #151921;
+}
+
+.comp-planet-name {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: #c9d1d9;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* Puntos de colores */
+.comp-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.dot-sol { background-color: #ff5500; box-shadow: 0 0 8px rgba(255, 85, 0, 0.5); }
+.dot-mercurio { background-color: #a0b0c0; }
+.dot-tierra { background-color: #5c9e31; }
+.dot-marte { background-color: #e06b2b; }
+.dot-venus { background-color: #e08b2b; }
+.dot-urano { background-color: #2cb5e8; }
+.dot-neptuno { background-color: #5b5fe8; }
+.dot-saturno { background-color: #d8c088; }
+.dot-jupiter { background-color: #d8c898; }
+.dot-pluton { background-color: #788898; }
+
+/* Grupo de peso */
+.comp-weight-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.comp-val {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+/* Colores de texto de números */
+.val-sol { color: #ff5500; }
+.val-mercurio { color: #a0b0c0; }
+.val-tierra { color: #5c9e31; }
+.val-marte { color: #e06b2b; }
+.val-venus { color: #e08b2b; }
+.val-urano { color: #2cb5e8; }
+.val-neptuno { color: #5b5fe8; }
+.val-saturno { color: #d8c088; }
+.val-jupiter { color: #d8c898; }
+.val-pluton { color: #788898; }
+
+.comp-unit {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.comp-gravity {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  color: #8b949e;
+}
+
+/* ESTADO ACTIVO (Planeta Seleccionado) */
+.comp-item.active {
+  background-color: #d8c888; /* Fondo beige dorado igual al de la captura */
+  border-color: #d8c888;
+}
+
+.comp-item.active .comp-planet-name,
+.comp-item.active .comp-val,
+.comp-item.active .comp-unit,
+.comp-item.active .comp-gravity {
+  color: #0b0e14 !important; /* Texto oscuro */
+}
+
+.comp-item.active .comp-dot {
+  border: 1px solid #0b0e14;
+}
+
+/* Pie de página */
+.comp-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: #ff6b35;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.comp-footer-note {
+  color: #ff6b35;
+}
+
+.comp-footer-tag {
+  color: #8b949e;
+}
+
+/* Responsivo para tablets y móviles */
+@media (max-width: 1024px) {
+  .comp-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .comp-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .comp-main-title {
+    font-size: 22px;
+  }
 }

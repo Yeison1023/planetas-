@@ -100,11 +100,11 @@
       </div>
 </section>
 
-<main id="results-dashboard" class="dashboard-grid">
+<main id="results-planetas" class="planetas-info">
   
-  <div class="dashboard-left">
-      <div class="jpl-poster-card">
-          <div class="poster-header">
+  <div class="planetas-izquierda">
+      <div class="afiche-poster">
+          <div class="poster-arriba">
             <span>MISIÓN COLECTIVA • <span id="poster-planet-name">EL SOL</span></span>
             <span id="poster-sector">SECTOR: CENTRO HELIOS-00</span>
           </div>
@@ -112,35 +112,23 @@
           <h1 id="poster-title" class="poster-title">THE SUN</h1>
           <p id="poster-subtitle" class="poster-subtitle">CORONA DE ENERGÍA INFINITA</p>
 
-          <div class="planet-graphic-container">
+          <div class="grafico-planeta">
             <div class="orbit-line"></div>
             <div class="planet-circle"></div>
           </div>
 
-          <div class="gravity-badge-container">
-            <div class="gravity-triangle">▲</div>
-            <div class="gravity-info">
+          <div class="gravedad-relativa">
+            <div class="gravedad-info">
               <span class="gravity-label">GRAVEDAD RELATIVA</span>
               <span id="poster-gravity" class="gravity-value">27.930G</span>
             </div>
           </div>
-
-            <div class="poster-footer">
-              <div>
-              JPL ARCHIVES • SERIE 1974<br>
-              <small id="poster-mission-code">HELIOSPHERE ODYSSEY</small>
-              </div>
-              <div class="jpl-code">
-                <span>✔ CÓDICE GRÁFICO OFICIAL JPL</span>
-                <span id="poster-exp-id">EXP-SUN-1974</span>
-              </div>
-            </div>
       </div>
 
-      <div class="inertia-meter-card">
-          <div class="inertia-header">
-            <span class="inertia-title">MEDIDOR COMPARATIVO DE INERCIA</span>
-            <span id="inertia-percentage" class="inertia-badge">2793.0% DE LA TIERRA</span>
+      <div class="debajo-de-arriba">
+          <div class="inercia">
+            <span class="inercia-titulo">MEDIDOR COMPARATIVO DE INERCIA</span>
+            <span id="inertia-percentage" class="inercia-badge">2793.0% DE LA TIERRA</span>
           </div>
 
           <div class="inertia-bar-group">
@@ -164,23 +152,23 @@
       <!-- COLUMNA DERECHA: RESULTADO TELEMÉTRICO Y FICHA TÉCNICA -->
   <div class="dashboard-right">
         
-        <!-- Bloque de Resultado de Peso -->
-      <div class="telemetry-result-box">
-            <div class="result-header">
+        
+      <div class="resultado-peso">
+            <div class="resultado-header">
               <span class="result-title-tag">RESULTADO DE TELEMETRÍA GRAVITACIONAL</span>
               <span class="formula-tag">FÓRMULA: P = M × (G / 9.81)</span>
             </div>
 
-          <div class="result-headline">
-            EN <span id="res-planet-name">EL SOL</span> PESARÍAS EXACTAMENTE:
+          <div class="resultado-header">
+            EN<span id="res-planet-name">EL SOL</span>PESARÍAS EXACTAMENTE:
           </div>
 
-          <div class="weight-display">
+          <div class="kilogramos-titulo">
             <span id="res-weight-value">1955.1</span>
-            <span class="weight-unit">KILOGRAMOS</span>
+            <span class="kilos">KILOGRAMOS</span>
           </div>
 
-          <div class="metrics-grid">
+          <div class="metrica-planeta">
             <!-- Variación -->
             <div class="metric-card">
               <div class="metric-header">📉 VARIACIÓN RESPECTO A LA TIERRA</div>
@@ -198,39 +186,181 @@
       </div>
 
         <!-- Encabezado Ficha Técnica -->
-          <div class="tech-sheet-header">
+          <div class="ficha-tecnica-header">
             <span>☩ FICHA TÉCNICA Y PARÁMETROS ORBITALES</span>
             <span class="source-tag">DATOS NASA/JPL ARCHIVE</span>
           </div>
 
         <!-- Cuadrícula de 4 Tarjetas de Información -->
-      <div class="tech-grid">
-            <div class="tech-card">
-              <div class="tech-card-title">1. TAMAÑO & RADIO ECUATORIAL <span>◎</span></div>
-              <div id="tech-size-val" class="tech-card-value">696,340 KM</div>
-              <div id="tech-size-desc" class="tech-card-desc">Aprox. 109 veces el diámetro de la Tierra.</div>
+      <div class="parametros-orbitales">
+            <div class="carta-tamaño">
+              <div class="carta-titulo">1. TAMAÑO & RADIO ECUATORIAL <span>◎</span></div>
+              <div id="tech-size-val" class="kilometros-titulo">696,340 KM</div>
+              <div id="tech-size-desc" class="diametro-planeta">Aprox. 109 veces el diámetro de la Tierra.</div>
             </div>
 
-          <div class="tech-card">
-            <div class="tech-card-title">2. COMPOSICIÓN ESTRUCTURAL <span>❖</span></div>
-            <div id="tech-comp-val" class="tech-card-value">PLASMA DE HIDRÓGENO (~73%) Y HELIO (~25%)</div>
-            <div id="tech-comp-desc" class="tech-card-desc">Horno termonuclear que sustenta todo el sistema planetario.</div>
+          <div class="carta-tamaño">
+            <div class="carta-titulo">2. COMPOSICIÓN ESTRUCTURAL <span>❖</span></div>
+            <div id="tech-comp-val" class="kilometros-titulo">PLASMA DE HIDRÓGENO (~73%) Y HELIO (~25%)</div>
+            <div id="tech-comp-desc" class="diametro-planeta">Horno termonuclear que sustenta todo el sistema planetario.</div>
           </div>
 
-          <div class="tech-card">
-            <div class="tech-card-title">3. SATÉLITES NATURALES (LUNAS) <span>☽</span></div>
-            <div id="tech-moons-val" class="tech-card-value">8 PLANETAS MAYORES + MILLONES DE ASTEROIDES</div>
-            <div id="tech-moons-desc" class="tech-card-desc">Gobierna gravitacionalmente todo el sistema solar.</div>
+          <div class="carta-tamaño">
+            <div class="carta-titulo">3. SATÉLITES NATURALES (LUNAS) <span>☽</span></div>
+            <div id="tech-moons-val" class="kilometros-titulo">8 PLANETAS MAYORES + MILLONES DE ASTEROIDES</div>
+            <div id="tech-moons-desc" class="diametro-planeta">Gobierna gravitacionalmente todo el sistema solar.</div>
           </div>
 
-          <div class="tech-card">
-            <div class="tech-card-title">4. DISTANCIA MEDIA DEL SOL <span>☀️</span></div>
-            <div id="tech-dist-val" class="tech-card-value">0 KM (CENTRO DEL SISTEMA)</div>
-            <div id="tech-dist-desc" class="tech-card-desc">La radiación tarda aprox. 100,000 años en emerger de su núcleo.</div>
+          <div class="carta-tamaño">
+            <div class="carta-titulo">4. DISTANCIA MEDIA DEL SOL <span>☀️</span></div>
+            <div id="tech-dist-val" class="kilometros-titulo">0 KM (CENTRO DEL SISTEMA)</div>
+            <div id="tech-dist-desc" class="diametro-planeta">La radiación tarda aprox. 100,000 años en emerger de su núcleo.</div>
           </div>
       </div>
   </div>
 </main>
+
+
+
+<section class="tabla-comparativa-section">
+  <div class="comparative-card">
+    
+    <!-- Encabezado de la tabla -->
+    <div class="comp-header">
+      <div class="comp-title-group">
+        <span class="comp-subtag">TABLA DE TRANSMISIÓN SIMULTÁNEA</span>
+        <h2 class="comp-main-title">PESO COMPARATIVO EN TODO EL SISTEMA SOLAR</h2>
+      </div>
+      <div class="comp-mass-group">
+        <span id="comp-mass-ref" class="comp-mass-tag">CÁLCULO BASADO EN MASA DE 70.0 KG</span>
+      </div>
+    </div>
+
+    <div class="comp-divider"></div>
+
+    <!-- Rejilla de 10 Astros -->
+    <div class="comp-grid">
+      
+      <!-- Sol -->
+      <div class="comp-item planet-sol" data-planet="sol">
+        <span class="comp-planet-name">SOL</span>
+        <div class="comp-dot dot-sol"></div>
+        <div class="comp-weight-group">
+          <span id="comp-val-sol" class="comp-val val-sol">1955.1</span>
+          <span class="comp-unit">KG</span>
+        </div>
+        <span class="comp-gravity">27.93G</span>
+      </div>
+
+      <!-- Mercurio -->
+      <div class="comp-item planet-mercurio" data-planet="mercurio">
+        <span class="comp-planet-name">MERCURIO</span>
+        <div class="comp-dot dot-mercurio"></div>
+        <div class="comp-weight-group">
+          <span id="comp-val-mercurio" class="comp-val val-mercurio">26.4</span>
+          <span class="comp-unit">KG</span>
+        </div>
+        <span class="comp-gravity">0.38G</span>
+      </div>
+
+      <!-- Tierra -->
+      <div class="comp-item planet-tierra" data-planet="tierra">
+        <span class="comp-planet-name">TIERRA</span>
+        <div class="comp-dot dot-tierra"></div>
+        <div class="comp-weight-group">
+          <span id="comp-val-tierra" class="comp-val val-tierra">70.0</span>
+          <span class="comp-unit">KG</span>
+        </div>
+        <span class="comp-gravity">1.00G</span>
+      </div>
+
+      <!-- Marte -->
+      <div class="comp-item planet-marte" data-planet="marte">
+        <span class="comp-planet-name">MARTE</span>
+        <div class="comp-dot dot-marte"></div>
+        <div class="comp-weight-group">
+          <span id="comp-val-marte" class="comp-val val-marte">26.5</span>
+          <span class="comp-unit">KG</span>
+        </div>
+        <span class="comp-gravity">0.38G</span>
+      </div>
+
+      <!-- Venus -->
+      <div class="comp-item planet-venus" data-planet="venus">
+        <span class="comp-planet-name">VENUS</span>
+        <div class="comp-dot dot-venus"></div>
+        <div class="comp-weight-group">
+          <span id="comp-val-venus" class="comp-val val-venus">63.3</span>
+          <span class="comp-unit">KG</span>
+        </div>
+        <span class="comp-gravity">0.90G</span>
+      </div>
+
+      <!-- Urano -->
+      <div class="comp-item planet-urano" data-planet="urano">
+        <span class="comp-planet-name">URANO</span>
+        <div class="comp-dot dot-urano"></div>
+        <div class="comp-weight-group">
+          <span id="comp-val-urano" class="comp-val val-urano">62.0</span>
+          <span class="comp-unit">KG</span>
+        </div>
+        <span class="comp-gravity">0.89G</span>
+      </div>
+
+      <!-- Neptuno -->
+      <div class="comp-item planet-neptuno" data-planet="neptuno">
+        <span class="comp-planet-name">NEPTUNO</span>
+        <div class="comp-dot dot-neptuno"></div>
+        <div class="comp-weight-group">
+          <span id="comp-val-neptuno" class="comp-val val-neptuno">79.6</span>
+          <span class="comp-unit">KG</span>
+        </div>
+        <span class="comp-gravity">1.14G</span>
+      </div>
+
+      <!-- Saturno -->
+      <div class="comp-item planet-saturno" data-planet="saturno">
+        <span class="comp-planet-name">SATURNO</span>
+        <div class="comp-dot dot-saturno"></div>
+        <div class="comp-weight-group">
+          <span id="comp-val-saturno" class="comp-val val-saturno">74.5</span>
+          <span class="comp-unit">KG</span>
+        </div>
+        <span class="comp-gravity">1.06G</span>
+      </div>
+
+      <!-- Júpiter (Activo por defecto en la captura) -->
+      <div class="comp-item planet-jupiter active" data-planet="jupiter">
+        <span class="comp-planet-name">JÚPITER</span>
+        <div class="comp-dot dot-jupiter"></div>
+        <div class="comp-weight-group">
+          <span id="comp-val-jupiter" class="comp-val val-jupiter">177.0</span>
+          <span class="comp-unit">KG</span>
+        </div>
+        <span class="comp-gravity">2.53G</span>
+      </div>
+
+      <!-- Plutón -->
+      <div class="comp-item planet-pluton" data-planet="pluton">
+        <span class="comp-planet-name">PLUTÓN</span>
+        <div class="comp-dot dot-pluton"></div>
+        <div class="comp-weight-group">
+          <span id="comp-val-pluton" class="comp-val val-pluton">4.4</span>
+          <span class="comp-unit">KG</span>
+        </div>
+        <span class="comp-gravity">0.06G</span>
+      </div>
+
+    </div>
+
+    <!-- Pie de la tabla -->
+    <div class="comp-footer">
+      <span class="comp-footer-note">* CÁLCULOS GRAVIMÉTRICOS BASADOS EN LA SUPERFICIE O ALTURA DE 1 BAR EN GIGANTES GASEOSOS</span>
+      <span class="comp-footer-tag">DIVISIÓN DE ASTROFÍSICA APLICADA • JPL EDICIÓN 1974</span>
+    </div>
+
+  </div>
+</section>
 
 
 </body>
