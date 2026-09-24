@@ -198,21 +198,21 @@ function updateTelemetry() {
   
   if (!planetSelect) return;
 
-  const planetKey = planetSelect.value;
-  const data = celestialData[planetKey];
+  const planetKey = planetSelect.value; // planeta selecionado 
+  const data = celestialData[planetKey];  //selecciona de la lista de arriba 
   const earthMass = parseFloat(massInput ? massInput.value : 70) || 70;
 
   if (!data) return;
 
   // 1. Cambiar variable de color del tema
   document.documentElement.style.setProperty('--theme-color', data.color);
-  document.documentElement.style.setProperty('--theme-color-glow', `${data.color}33`);
+  document.documentElement.style.setProperty('--theme-color-glow', `${data.color}33`); //css de los planetas y del index
 
   // 2. Cálculos Físicos
   const calculatedWeight = earthMass * (data.gravity / 9.81);
   const percentDiff = ((data.gravity - 9.81) / 9.81) * 100;
-  const jumpFactor = 9.81 / data.gravity;
-  const jumpMeters = 0.50 * jumpFactor;
+  const jumpFactor = 9.81 / data.gravity; // selecciona la gravedad de un planeta 
+  const jumpMeters = 0.50 * jumpFactor; // muestra en la pagina cuanto seria un salto de o.50cm en otro planeta
 
   // 3. AFICHE IZQUIERDO
   setSafeText('poster-planet-name', data.name);
@@ -223,7 +223,7 @@ function updateTelemetry() {
   setSafeText('poster-exp-id', data.code);
 
   // 4. MEDIDOR DE INERCIA
-  const relPercent = ((data.gravity / 9.81) * 100).toFixed(1);
+  const relPercent = ((data.gravity / 9.81) * 100).toFixed(1); // topfixed para redondear a 1 
   setSafeText('inertia-percentage', `${relPercent}% DE LA TIERRA`);
   setSafeText('inertia-earth-mass', `${earthMass.toFixed(1)} KG`);
   setSafeText('inertia-local-label', `${data.name} (LOCAL)`);
@@ -259,11 +259,12 @@ function updateTelemetry() {
   // 7. TABLA DE TRANSMISIÓN SIMULTÁNEA INFERIOR
   setSafeText('comp-mass-ref', `CÁLCULO BASADO EN MASA DE ${earthMass.toFixed(1)} KG`);
 
-  Object.keys(celestialData).forEach(key => {
+  Object.keys(celestialData).forEach(key => {   
     const itemData = celestialData[key];
     const itemWeight = (earthMass * (itemData.gravity / 9.81)).toFixed(1);
-    setSafeText(`comp-val-${key}`, itemWeight);
-  });
+    setSafeText(`comp-val-${key}`, itemWeight); 
+  });  
+  
 
   // Resaltar elemento activo en la tabla
   document.querySelectorAll('.comp-item').forEach(card => {
