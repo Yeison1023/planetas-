@@ -1,86 +1,237 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  
-  <title>Calculadora de Peso Interplanetaria</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <title> Peso En Planetas </title>
 </head>
 <body>
-    <script src="jay.js"></script>
-  <main class="dashboard">
-    <header class="header">
-      <span class="badge">EXPLORACIÓN PLANETARIA PESO</span>
-      <h1>CALCULADORA DE <span>PESO</span> INTERPLANETARIA</h1>
-      <p>Determine su masa relativa y evalúe la alteración barométrica de su cuerpo en el Sistema Solar.</p>
-    </header>
-
-    <!-- Panel de control -->
-    <section class="panel control-panel">
-      <div class="field-group">
-        <h1> ASTRO O CUERPO CELESTE DE DESTINO </h1>
-        <select id="planet-select" onchange="updatePlanet()">
-            <option value="sol" data-gravity="27.93" data-color="#FF3800" data-tagline="CORONA DE ENERGIA INFINITA"> SOL — 274.0 m/s²</option>
-          <option value="mercurio" data-gravity="0.377" data-color="#cccccc" data-tagline="EL CORREDOR VELOZ"> MERCURIO — 3.70 m/s²</option>
-          <option value="tierra" data-gravity="1.000" data-color="#568203" data-tagline="CUNA DE HUMANIDAD"> TIERRA — 9.81 m/s²</option>
-          <option value="marte" data-gravity="0.379" data-color="#ff5500" data-tagline="VISITA LOS VALLES ROJOS"> MARTE  — 3.79 m/s²</option>
-          <option value="venus" data-gravity="0.907" data-color="#e6b800" data-tagline="EL INFIERNO INVERNADERO"> VENUS — 8.87 m/s²</option>
-          <option value="urano" data-gravity="0.886" data-color="#0FFFFF" data-tagline="EL RETRATO DE TURQUESA"> URANO — 8.69 m/s²</option>
-          <option value="neptuno" data-gravity="1.137" data-color="#0088ff" data-tagline="EL MUNDO AZUL OCULTO"> NEPTUNO — 11.15 m/s²</option>
-          <option value="saturno" data-gravity="1.064" data-color="#DAC8AE" data-tagline="LA CORONA ANILLADA"> SATURNO — 10.44 m/s²</option>
-          <option value="júpiter" data-gravity="2.528" data-color="#ffaa00" data-tagline="EL GIGANTE GASEOSO"> JÚPITER — 24.79 m/s²</option>
-          <option value="luna" data-gravity="0.166" data-color="#aaaaaa" data-tagline="EL SATÉLITE NATURAL">LA LUNA — 1.62 m/s²</option>
-        </select>
-      </div>
-      <div class="field-group">
-        <h1> MASA TERRESTRE DEL EXPLORADOR (KG) </h1>
-        <input type="number" id="user-weight" value="70" placeholder="70" oninput="calculateWeight()">
-      </div>
-    </section>
-     
-    <!-- holaaa monda  -->
-
-    <div class="grid-container">
-      
-      <article class="panel card-visual">
-        <span class="card-subtitle">SECTOR HACTOR AR93-B1</span>
-        <h2 id="planet-name">MARS</h2>
-        <p id="planet-tagline" class="tagline">VISITA LOS VALLES ROJOS</p>
-        
-        <div class="planet-graphic">
-          <div class="orbit-circle"></div>
-          <div class="planet-sphere" id="planet-sphere"></div>
-        </div>
-
-        <div class="gravity-info">
-          <span>GRAVEDAD RELATIVA</span>
-          <strong id="planet-gravity-display">0.379G</strong>
-        </div>
-      </article>
-
-      
-      <article class="panel card-results">
-        <div class="results-header">
-          <h3>EN <span id="target-planet-label">MARTE</span> PESARÍAS EXACTAMENTE:</h3>
-          <div class="big-result">
-            <span id="final-weight-val">26.5</span>
-            <small>KILOGRAMOS</small>
-          </div>
-        </div>
-
-        <div class="metrics-grid">
-          <div class="metric-box">
-            <h4>VARIACIÓN RESPECTO A LA TIERRA</h4>
-            <p id="weight-diff-percent">-62.1% MÁS LIGERO</p>
-          </div>
-          <div class="metric-box">
-            <h4>DESEMPEÑO CINÉTICO DE SALTO</h4>
-            <p id="jump-height">2.64× MÁS ALTO</p>
-          </div>
-        </div>
-      </article>
+    <header class="inicio-section">
+    <div class="titulo">
+      <span class="titulo-icon">🚀</span>
+      <span class="titulo-text">EXPLORACIÓN PLANETARIA PESO</span>
+      <span class="titulo-dot">•</span>
     </div>
-  </main>
+
+    <h1 class="main-title">
+      CALCULADORA DE<br>
+      <span class="highlight">PESO</span> INTERPLANETARIA
+    </h1>
+
+    <p class="description">
+      Determine su masa relativa, evalúe la alteración barométrica de su cuerpo y<br> 
+      descubra las especificaciones orbitales a través del catálogo fotométrico del<br>
+      Sistema Solar.
+    </p> 
+  </header>
+
+<section class="telemetry-panel-container">
+
+    <div class="top-divider"></div>
+
+      <div class="telemetry-panel">
+          <div class="panel-header">
+            <div class="panel-title">
+              <span class="square-accent">■</span>
+              <h2>PANEL DE REGULACIÓN TELEMÉTRICA</h2>
+            </div>
+            <div class="panel-status">
+              SISTEMA DE CALIBRACIÓN DE INERCIA EN LÍNEA
+            </div>
+          </div>
+
+      <div class="panel-controls">
+            <div class="control-group planet-select-group">
+                <label class="control-label">
+                  ASTRO O CUERPO CELESTE DE DESTINO 
+                </label>
+                  <div class="select-planeta">
+                    <select class="custom-select">
+                      <option value="sol" selected>00. EL SOL (ESTRELLA MADRE) — 274.0 M/S² [G=27.93]</option>
+                      <option value="mercurio">01. MERCURIO (EL CORREDOR VELOZ) — 3.70 M/S² [G=0.38]</option>
+                      <option value="tierra">02. LA TIERRA (CUNA TERRESTRE) — 9.81 M/S² [G=1.00]</option>
+                      <option value="marte">03. MARTE (EL PLANETA CARMESÍ) — 3.72 M/S² [G=0.38]</option>
+                      <option value="venus">04. VENUS (EL OBSERVATORIO NUBOSO) — 8.87 M/S² [G=0.90]</option>
+                      <option value="urano">05. URANO (EL GIGANTE DE HIELO) — 8.69 M/S² [G=0.89]</option>
+                      <option value="neptuno">06. NEPTUNO (EL REINO DE LAS TORMENTAS) — 11.15 M/S² [G=1.14]</option>
+                      <option value="saturno">07. SATURNO (LA CORONA ANILLADA) — 10.44 M/S² [G=1.06]</option>
+                      <option value="jupiter">08. JÚPITER (EL COLOSO GASEOSO) — 24.79 M/S² [G=2.53]</option>
+                      <option value="pluton">09. PLUTÓN (EL CENTINELA DE KUIPER) — 0.62 M/S² [G=0.06]</option>
+                    </select>
+                  </div>
+            </div>
+
+              <div class="calcular-peso ">
+                <label class="control-label">
+                  MASA TERRESTRE DEL EXPLORADOR (KG) 
+                </label>
+                <div class="input-peso">
+                  <input type="number" class="custom-input" value="70" min="1">
+                  <span class="input-kg">KG</span>
+                </div>
+              </div>
+
+            <div class="calcular-peso ">
+              <button class="btn-calculate">
+                <span class="btn-icon">⚛</span>
+                CALCULAR TELEMETRÍA
+              </button>
+            </div>
+        </div>
+
+        <!-- Barra de Paletas Litográficas -->
+        <div class="colores-planetas">
+          <span class="palette-title">PALETAS LITOGRÁFICAS VINTAGE JPL:</span>
+          <div class="palette-buttons">
+            <button class="palette-btn"><span class="color-dot color-sol"></span>SOL</button>
+            <button class="palette-btn"><span class="color-dot color-mercurio"></span>MERCURIO</button>
+            <button class="palette-btn"><span class="color-dot color-tierra"></span>TIERRA</button>
+            <button class="palette-btn"><span class="color-dot color-marte"></span>MARTE</button>
+            <button class="palette-btn"><span class="color-dot color-venus"></span>VENUS</button>
+            <button class="palette-btn"><span class="color-dot color-urano"></span>URANO</button>
+            <button class="palette-btn"><span class="color-dot color-neptuno"></span>NEPTUNO</button>
+            <button class="palette-btn"><span class="color-dot color-saturno"></span>SATURNO</button>
+            <button class="palette-btn"><span class="color-dot color-jupiter"></span>JÚPITER</button>
+            <button class="palette-btn"><span class="color-dot color-pluton"></span>PLUTÓN</button>
+          </div>
+        </div>
+      </div>
+</section>
+
+<main id="results-dashboard" class="dashboard-grid">
+  
+  <div class="dashboard-left">
+      <div class="jpl-poster-card">
+          <div class="poster-header">
+            <span>MISIÓN COLECTIVA • <span id="poster-planet-name">EL SOL</span></span>
+            <span id="poster-sector">SECTOR: CENTRO HELIOS-00</span>
+          </div>
+
+          <h1 id="poster-title" class="poster-title">THE SUN</h1>
+          <p id="poster-subtitle" class="poster-subtitle">CORONA DE ENERGÍA INFINITA</p>
+
+          <div class="planet-graphic-container">
+            <div class="orbit-line"></div>
+            <div class="planet-circle"></div>
+          </div>
+
+          <div class="gravity-badge-container">
+            <div class="gravity-triangle">▲</div>
+            <div class="gravity-info">
+              <span class="gravity-label">GRAVEDAD RELATIVA</span>
+              <span id="poster-gravity" class="gravity-value">27.930G</span>
+            </div>
+          </div>
+
+            <div class="poster-footer">
+              <div>
+              JPL ARCHIVES • SERIE 1974<br>
+              <small id="poster-mission-code">HELIOSPHERE ODYSSEY</small>
+              </div>
+              <div class="jpl-code">
+                <span>✔ CÓDICE GRÁFICO OFICIAL JPL</span>
+                <span id="poster-exp-id">EXP-SUN-1974</span>
+              </div>
+            </div>
+      </div>
+
+      <div class="inertia-meter-card">
+          <div class="inertia-header">
+            <span class="inertia-title">MEDIDOR COMPARATIVO DE INERCIA</span>
+            <span id="inertia-percentage" class="inertia-badge">2793.0% DE LA TIERRA</span>
+          </div>
+
+          <div class="inertia-bar-group">
+            <div class="inertia-label-row">
+              <span>TIERRA (REFERENCIA FIJA 1.0G)</span>
+              <span id="inertia-earth-mass">70.0 KG</span>
+            </div>
+            <div class="bar-bg"><div class="bar-fill earth-bar" style="width: 100%;"></div></div>
+          </div>
+
+          <div class="inertia-bar-group">
+              <div class="inertia-label-row">
+                <span id="inertia-local-label">EL SOL (LOCAL)</span>
+                <span id="inertia-local-mass">1955.10 KG</span>
+              </div>
+              <div class="bar-bg"><div id="inertia-local-bar" class="bar-fill local-bar" style="width: 100%;"></div></div>
+          </div>
+        </div>
+    </div>
+
+      <!-- COLUMNA DERECHA: RESULTADO TELEMÉTRICO Y FICHA TÉCNICA -->
+  <div class="dashboard-right">
+        
+        <!-- Bloque de Resultado de Peso -->
+      <div class="telemetry-result-box">
+            <div class="result-header">
+              <span class="result-title-tag">RESULTADO DE TELEMETRÍA GRAVITACIONAL</span>
+              <span class="formula-tag">FÓRMULA: P = M × (G / 9.81)</span>
+            </div>
+
+          <div class="result-headline">
+            EN <span id="res-planet-name">EL SOL</span> PESARÍAS EXACTAMENTE:
+          </div>
+
+          <div class="weight-display">
+            <span id="res-weight-value">1955.1</span>
+            <span class="weight-unit">KILOGRAMOS</span>
+          </div>
+
+          <div class="metrics-grid">
+            <!-- Variación -->
+            <div class="metric-card">
+              <div class="metric-header">📉 VARIACIÓN RESPECTO A LA TIERRA</div>
+              <div id="metric-diff-value" class="metric-value">+2693.0% MÁS PESADO</div>
+              <div id="metric-diff-desc" class="metric-desc">Mayor esfuerzo biomecánico y compresión articular por sobrepeso gravitatorio.</div>
+            </div>
+
+            <!-- Desempeño de salto -->
+            <div class="metric-card">
+              <div class="metric-header">🚶 DESEMPEÑO CINÉTICO DE SALTO</div>
+              <div id="metric-jump-value" class="metric-value">0.04× MÁS ALTO</div>
+              <div id="metric-jump-desc" class="metric-desc">Un salto vertical de 0.50 m en la Tierra aquí ascendería a 0.02 metros.</div>
+            </div>
+          </div>
+      </div>
+
+        <!-- Encabezado Ficha Técnica -->
+          <div class="tech-sheet-header">
+            <span>☩ FICHA TÉCNICA Y PARÁMETROS ORBITALES</span>
+            <span class="source-tag">DATOS NASA/JPL ARCHIVE</span>
+          </div>
+
+        <!-- Cuadrícula de 4 Tarjetas de Información -->
+      <div class="tech-grid">
+            <div class="tech-card">
+              <div class="tech-card-title">1. TAMAÑO & RADIO ECUATORIAL <span>◎</span></div>
+              <div id="tech-size-val" class="tech-card-value">696,340 KM</div>
+              <div id="tech-size-desc" class="tech-card-desc">Aprox. 109 veces el diámetro de la Tierra.</div>
+            </div>
+
+          <div class="tech-card">
+            <div class="tech-card-title">2. COMPOSICIÓN ESTRUCTURAL <span>❖</span></div>
+            <div id="tech-comp-val" class="tech-card-value">PLASMA DE HIDRÓGENO (~73%) Y HELIO (~25%)</div>
+            <div id="tech-comp-desc" class="tech-card-desc">Horno termonuclear que sustenta todo el sistema planetario.</div>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-card-title">3. SATÉLITES NATURALES (LUNAS) <span>☽</span></div>
+            <div id="tech-moons-val" class="tech-card-value">8 PLANETAS MAYORES + MILLONES DE ASTEROIDES</div>
+            <div id="tech-moons-desc" class="tech-card-desc">Gobierna gravitacionalmente todo el sistema solar.</div>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-card-title">4. DISTANCIA MEDIA DEL SOL <span>☀️</span></div>
+            <div id="tech-dist-val" class="tech-card-value">0 KM (CENTRO DEL SISTEMA)</div>
+            <div id="tech-dist-desc" class="tech-card-desc">La radiación tarda aprox. 100,000 años en emerger de su núcleo.</div>
+          </div>
+      </div>
+  </div>
+</main>
+
+
 </body>
 </html>
