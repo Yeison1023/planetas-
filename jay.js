@@ -323,3 +323,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Ejecución inicial al cargar la página
   updateTelemetry();
 });
+
+
+function cambiarIdioma(idioma) {
+
+    const elementos = document.querySelectorAll("[data-es]");
+
+    elementos.forEach(elemento => {
+        elemento.textContent = elemento.dataset[idioma];
+    });
+
+}

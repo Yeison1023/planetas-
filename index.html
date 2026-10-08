@@ -10,6 +10,10 @@
 <script src="jay.js"></script>
 <body>
     <header class="inicio-section">
+    <main class="idiomas">
+    <button class="boton-idioma" onclick="cambiarIdioma('en')">English</button>
+    <button class="boton-idioma" onclick="cambiarIdioma('es')">Español</button>
+    </main>
     <div class="titulo">
       <span class="titulo-icon">🚀</span>
       <span class="titulo-text">EXPLORACIÓN PLANETARIA PESO</span>
@@ -36,7 +40,10 @@
           <div class="panel-header">
             <div class="panel-title">
               <span class="square-accent">■</span>
-              <h2>PANEL DE REGULACIÓN TELEMÉTRICA</h2>
+              <h2 data-es ="PANEL DE REGULACIÓN TELEMÉTRICA"
+                  data-en="ELEMETRY REGULATION PANEL">
+                  PANEL DE REGULACIÓN TELEMÉTRICA
+              </h2>
             </div>
             <div class="panel-status">
               SISTEMA DE CALIBRACIÓN DE INERCIA EN LÍNEA
